@@ -22,7 +22,7 @@
 
     .container {
       width: 100%;
-      max-width: 400px;
+      max-width: 600px;
       padding: 1rem;
       display: flex;
       flex-direction: column;
@@ -31,20 +31,24 @@
 
     .card {
       width: 100%;
-      height: 520px;
+        max-width: 520px;     /* 橫向最大寬度可以拉寬 */
+  height: 300px;         /* 高度變小，呈現橫式 */
+  padding: 2rem 3rem;    /* 左右padding多一點，文字不擁擠 */
       background-color: white;
       border-radius: 16px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 4rem;
       font-size: 1.4rem;
       text-align: center;
       line-height: 1.6;
       transition: all 0.3s ease;
       white-space: pre-wrap;
       word-break: keep-all;
+
+
+
     }
 
     .button {
@@ -63,11 +67,15 @@
       background-color: #d65f00;
     }
 
-    @media (max-width: 600px) {
-      .card {
-        height: 460px;
-        font-size: 1.2rem;
-        padding: 1.5rem;
+@media (max-width: 600px) {
+  .card {
+ width: 100%;
+    height: 260px;
+ padding: 2rem 3rem; 
+    font-size: 1.5rem;
+      white-space: pre-wrap;
+      word-break: keep-all;
+word-wrap: break-word;
       }
     }
   </style>
@@ -80,41 +88,45 @@
 
   <script>
     const cards = [
- "宇宙愛著我，神靈都正幫助我完成我的夢想",
+  
+
+
+ "善待自己像是 善待你最好的朋友",
+ "宇宙愛著我， 神靈都正在幫助我完成 我的夢想",
+
+
+
       "傻乎乎的也很好",
       "我願意接受美好的禮物",
       "信念創造實相，用美好的話語顯化你的生活",
       "我想著的那些美夢，宇宙早已悄悄聽見",
       "將事情化為遊戲，用各種不同的角度玩樂",
-	"放手去玩吧！",
 
+      "放手去玩吧！",
       "享受當下，體驗當下",
       "一起出門走走吧～",
       "我享受我擁有的每一秒",
       "我喜歡享受呼吸，享受生活中的每一個行動",
+
+
       "你已經足夠好了",
       "你已擁有你需要的一切，去實現你的夢想吧",
-
       "我是很幸運的人，我是豐足的，豐盛富足",
       "我願意接受我的豐盛，我是受祝福的",
       "世界很安全，我是安全的",
       "我是被保護的",
       "愛你，愛的力量是強大的",
       "能呼吸乾淨的空氣也是一種福報",
-
-
       "我愛我的身體，我照顧我的身體",
       "愛，不需要資格",
       "去閃耀你的光芒",
       "愛可以化解業力與阻礙",
       "愛就是答案，選擇有愛的路",
       "平靜是一種力量",
-
       "宇宙為你準備了無限的祝福",
       "我做過的夢，許過的願，宇宙都聽見了",
       "對自己說一些讓心暖呼呼的話吧",
-      "愛自己，如同一個人愛他的貓，愛惜自己",
-
+      "愛自己，如同一個人愛他的貓",
       "聆聽你的直覺",
       "去發現身邊的豐盛",
       "感恩是連接幸運的大門",
@@ -127,27 +139,33 @@
       "我釋放我的憤怒，擁抱我的喜悅",
       "在心中描繪你最愛的場所，專注用五感去觸碰",
       "你比你想得更強大",
-
       "享受實踐的過程，去分享愛與美好",
       "你擁有所有的神性本質",
       "我所愛的都是最珍貴的，我值得最美好的事發生",
       "我選擇活在天堂中",
-
       "感恩是連接幸運的大門",
       "用更高的視野觀看，記錄靈感與想法",
       "善待自己像是善待你最好的朋友",
       "沒有錯誤，只有經驗",
-
-
       "我願意發現我本質中的美好",
-      "你是自己最好的預言家",
+      "你就是自己最好的預言家",
       "你比你想得還要被神鍾愛",
- 	 "我創造，我富足",
+      "我創造，我富足",
       "去看見生命中小小的美好"
+
+
+
+
     ];
 
     function drawCard() {
-      const randomIndex = Math.floor(Math.random() * cards.length);
+      let lastIndex = sessionStorage.getItem('lastCardIndex');
+      let randomIndex;
+      do {
+        randomIndex = Math.floor(Math.random() * cards.length);
+      } while (cards.length > 1 && randomIndex == lastIndex);
+
+      sessionStorage.setItem('lastCardIndex', randomIndex);
       const card = cards[randomIndex];
       document.getElementById("cardText").textContent = card;
     }
