@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Brightening Card</title>
   <style>
     * {
@@ -29,28 +29,7 @@
       align-items: center;
     }
 
-    .card {
-      width: 100%;
-        max-width: 520px;     /* 橫向最大寬度可以拉寬 */
-  height: 300px;         /* 高度變小，呈現橫式 */
-  padding: 2rem 3rem;    /* 左右padding多一點，文字不擁擠 */
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      text-align: center;
-      line-height: 1.6;
-      transition: all 0.3s ease;
-      white-space: pre-wrap;
-      word-break: keep-all;
-word-wrap: break-word;
 
-
-
-    }
 
     .button {
       margin-top: 1.5rem;
@@ -68,15 +47,37 @@ word-wrap: break-word;
       background-color: #d65f00;
     }
 
+
+.card {
+  width: 100%;
+  max-width: 520px;
+  height: 300px;
+  padding: 2rem 3rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  text-align: center;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+      white-space: pre-wrap;
+      word-break: keep-all;
+line-break: strict;
+}
+
+
 @media (max-width: 600px) {
   .card {
  width: 100%;
     height: 260px;
- padding: 2rem 3rem; 
-    font-size: 1.5rem;
+    font-size: 1.2rem;  /* 調整手機字體大小 */
+    padding: 1.5rem 2.5rem;  /* 調整內距以適應螢幕 */
       white-space: pre-wrap;
       word-break: keep-all;
-word-wrap: break-word;
+line-break: strict;
       }
     }
   </style>
@@ -89,7 +90,7 @@ word-wrap: break-word;
 
   <script>
     const cards = [
-      "善待自己 <br> 像是善待你最好的朋友",
+      "善待自己像是善待你最好的朋友",
       "宇宙愛著我， 神靈都正在幫助我完成我的夢想",
       "傻乎乎的也很好",
       "我願意接受美好的禮物",
