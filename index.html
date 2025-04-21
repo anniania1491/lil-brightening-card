@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 
-  <title>Brightening Card+</title>
+  <title>Brightening Card V </title>
   <style>
     * {
       box-sizing: border-box;
@@ -77,9 +77,10 @@
   text-align: center;
   line-height: 1.6;
   transition: all 0.3s ease;
-      white-space: pre-wrap;
-      word-break: keep-all;
-line-break: strict;
+  white-space: pre-wrap;
+  word-break: break-word; /* 這裡改成 break-word */
+  overflow-wrap: break-word; /* 新增這一行 */
+  line-break: strict;
 }
 
 
@@ -89,9 +90,10 @@ line-break: strict;
     height: 260px;
     font-size: 1.2rem;  /* 調整手機字體大小 */
     padding: 1.5rem 2.5rem;  /* 調整內距以適應螢幕 */
-      white-space: pre-wrap;
-      word-break: keep-all;
-line-break: strict;
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-break: strict;
       }
     }
   </style>
