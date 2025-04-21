@@ -1,59 +1,84 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>療癒小語</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brightening Card</title>
   <style>
-
+    * {
+      box-sizing: border-box;
+    }
 
     body {
-      background: #fef8f5;
-      font-family: 'Noto Sans TC', sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background: linear-gradient(to bottom, #fceabb, #f8b500);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 400px;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
-      .card {
-    width: 200px;
-    height: 280px; /* 調高這裡讓卡片更像撲克牌比例 */
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    background: white;
-    padding: 20px;
-    font-size: 18px;
-    line-height: 1.5;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    transition: all 0.3s ease;
-  }
 
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-  }
-    
+    .card {
+      width: 100%;
+      height: 520px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
     .button {
-      margin-top: 20px;
-      padding: 0.5em 1.5em;
-      background: #ffc5c5;
+      margin-top: 1.5rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #f77f00;
+      color: white;
       border: none;
-      border-radius: 12px;
-      font-size: 1em;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #d65f00;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        height: 460px;
+        font-size: 1.2rem;
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card" id="quote">點擊下方按鈕抽出話語小卡 🌷</div>
-  <button class="button" onclick="drawCard()">抽卡</button>
+  <div class="container">
+    <div class="card" id="cardText">🌞 點擊按鈕抽卡片</div>
+    <button class="button" onclick="drawCard()">抽一張卡片</button>
+  </div>
 
   <script>
-    const quotes = [
-      "宇宙愛著我，神靈都正幫助我完成我的夢想",
+    const cards = [
+   "宇宙愛著我，神靈都正幫助我完成我的夢想",
       "傻乎乎的也很好",
       "我願意接受美好的禮物",
       "信念創造實相，用美好的話語顯化你的生活",
@@ -116,16 +141,13 @@
       "你是自己最好的預言家",
       "你比你想得還要被神鍾愛",
  	 "我創造，我富足",
-      "去看見生命中小小的美好",
-
-
-
+      "去看見生命中小小的美好"
     ];
 
     function drawCard() {
-      const randomIndex = Math.floor(Math.random() * quotes.length);
-      const card = document.getElementById('quote');
-      card.textContent = quotes[randomIndex];
+      const randomIndex = Math.floor(Math.random() * cards.length);
+      const card = cards[randomIndex];
+      document.getElementById("cardText").textContent = card;
     }
   </script>
 </body>
