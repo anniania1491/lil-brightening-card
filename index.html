@@ -43,6 +43,8 @@
       text-align: center;
       line-height: 1.6;
       transition: all 0.3s ease;
+      white-space: pre-wrap;
+      word-break: keep-all;
     }
 
     .button {
@@ -72,13 +74,13 @@
 </head>
 <body>
   <div class="container">
-    <div class="card" id="cardText">🌞 點擊按鈕抽卡片</div>
+    <div class="card" id="cardText">🌞 點擊按鈕抽一句語錄</div>
     <button class="button" onclick="drawCard()">抽一張卡片</button>
   </div>
 
   <script>
     const cards = [
-   "宇宙愛著我，神靈都正幫助我完成我的夢想",
+ "宇宙愛著我，神靈都正幫助我完成我的夢想",
       "傻乎乎的也很好",
       "我願意接受美好的禮物",
       "信念創造實相，用美好的話語顯化你的生活",
